@@ -2,10 +2,10 @@
 
 This is a public version of the code used in *[Security Proof for Variable-Length Quantum Key Distribution](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.6.023002)* \[[arxiv link](https://arxiv.org/abs/2311.01600)]. This was built for [v2.0.1](https://github.com/Optical-Quantum-Communication-Theory/openQKDsecurity/releases/tag/v2.0.1) of the Open QKD Security package.
 
-The code computes the key rates for fixed-length and variable-length qubit BB84 protocols studied in the paper and generates the plots in the paper. NOTE : The key rates produced by this code are slightly better than the key rates in the published paper. This is due to variety of improvements made in the numerical optimization routine since the publication of the paper. In particular, this code solves the same optimization for key rate calculations as the one presented in the paper.
+The code computes the key rates for fixed-length and variable-length qubit BB84 protocols studied in the paper and generates the plots in the paper.
 
-If you would like access to the code that exactly reproduces the plots in the paper, please reach out to us.
-
+> [!NOTE]
+> The key rates produced by this code are slightly better than the key rates in the published paper. This is due to variety of improvements made in the numerical optimization routine since the publication of the paper. In particular, this code solves the same optimization for key rate calculations as the one presented in the paper. If you would like access to the code that exactly reproduces the plots in the paper, please reach out to us.
 
 ## Install instructions
 > [!CAUTION]
