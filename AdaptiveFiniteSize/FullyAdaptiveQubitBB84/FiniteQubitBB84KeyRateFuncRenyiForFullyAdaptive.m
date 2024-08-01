@@ -1,4 +1,4 @@
-function [keyRate, modParser, debugInfo] = FiniteQubitBB84KeyRateFuncRenyiForFullyAdaptive(params,options,mathSolverFunc,mathSolverOptions,debugInfo)
+function [keyRate, modParser, debugInfo] = FiniteQubitBB84KeyRateFuncRenyiForFullyAdaptive(params,options,mathSolverFunc,debugInfo)
 % FiniteQubitBB84KeyRateFuncRenyiForFullyAdaptive A finite size key rate function for a 
 %  Finite-size key BB84 protocol, which uses Renyi entropies.  
 % and compute key rate for each value. Basically t is set to zero, and the
@@ -24,7 +24,7 @@ function [keyRate, modParser, debugInfo] = FiniteQubitBB84KeyRateFuncRenyiForFul
 %   Typically should be fairly low. This cuts into key rate, but also
 %   entirely destroys key rate if it is too low.
 % * tExp : a finite size parameter that decides the size of the acceptance
-% test.
+%   test.
 % * expectationsJoint : Joint expectations of Bob's outcome
 %   Alice sent a given signal.
 % * ObservablesJoint : POVMs corresponding to Alice sending a given signal
@@ -43,7 +43,6 @@ arguments
     params (1,1) struct
     options (1,1) struct
     mathSolverFunc (1,1) function_handle
-    mathSolverOptions (1,1) struct
     debugInfo (1,1) DebugInfo
 end
 
@@ -157,7 +156,7 @@ mathSolverInput.keyProj = params.keyProj;
 mathSolverInput.rhoA = params.rhoA;
 
 
-[relEnt,~] = mathSolverFunc(mathSolverInput,mathSolverOptions, debugMathSolver);
+[relEnt,~] = mathSolverFunc(mathSolverInput, debugMathSolver);
 
 
 keyRate = finiteKeyRateRenyi(relEnt, deltaLeak, gains, params, options);

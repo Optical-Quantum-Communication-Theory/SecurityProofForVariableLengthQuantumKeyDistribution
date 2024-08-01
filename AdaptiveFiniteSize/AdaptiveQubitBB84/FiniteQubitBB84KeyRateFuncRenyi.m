@@ -1,4 +1,4 @@
-function [keyRate, modParser, debugInfo] = FiniteQubitBB84KeyRateFuncRenyi(params,options,mathSolverFunc,mathSolverOptions,debugInfo)
+function [keyRate, modParser, debugInfo] = FiniteQubitBB84KeyRateFuncRenyi(params,options,mathSolverFunc,debugInfo)
 % FiniteQubitBB84KeyRateFuncRenyi A finite size key rate function for a 
 %  Finite-size key BB84 protocol, which uses Renyi entropies.  
 %   and compute key rate for each value. .
@@ -42,7 +42,6 @@ arguments
     params (1,1) struct
     options (1,1) struct
     mathSolverFunc (1,1) function_handle
-    mathSolverOptions (1,1) struct
     debugInfo (1,1) DebugInfo
 end
 
@@ -157,7 +156,7 @@ mathSolverInput.keyProj = params.keyProj;
 mathSolverInput.rhoA = params.rhoA;
 
 
-[relEnt,~] = mathSolverFunc(mathSolverInput,mathSolverOptions, debugMathSolver);
+[relEnt,~] = mathSolverFunc(mathSolverInput, debugMathSolver);
 
 
 keyRate = finiteKeyRateRenyi(relEnt, deltaLeak, gains, params, options);
