@@ -9,10 +9,10 @@ results = MainIteration(qkdInput);
 
 save("./fullyAdaptiveOutput.mat","results","qkdInput");
  
-%plotting
+%% plotting
 plottingFullyAdaptive()
 
 %% plot the result
-%load("adaptiveOutput.mat");
-%plotResults(results, qkdInput, 'dB-log')
+% load("adaptiveOutput.mat");
+% plotResults(results, qkdInput, 'dB-log')
 % plotResults(results, qkdInput, 'linear')

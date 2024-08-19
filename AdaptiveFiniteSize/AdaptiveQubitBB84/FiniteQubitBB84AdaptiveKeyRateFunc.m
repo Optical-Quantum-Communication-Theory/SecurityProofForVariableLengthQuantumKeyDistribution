@@ -1,4 +1,4 @@
-function [keyRate, modParser, debugInfo] = FiniteQubitBB84AdaptiveKeyRateFunc(params,options,mathSolverFunc,mathSolverOptions,debugInfo)
+function [keyRate, modParser, debugInfo] = FiniteQubitBB84AdaptiveKeyRateFunc(params,options,mathSolverFunc,debugInfo)
 % FiniteQubitBB84AdaptiveKeyRateFuncRenyi A finite size key rate function for a 
 %  Adaptive Finite-size key BB84 protocol, which uses Renyi entropies. We take
 % in a list of tExp values, and compute finitesize keyrate and accept prob
@@ -43,7 +43,6 @@ arguments
     params (1,1) struct
     options (1,1) struct
     mathSolverFunc (1,1) function_handle
-    mathSolverOptions (1,1) struct
     debugInfo (1,1) DebugInfo
 end
 
@@ -151,7 +150,7 @@ for index = 1: maxIndex
     debugKeyRateLeaves = debugInfo.addLeaves(strcat("FiniteKeyRateCalc",num2str(index)));
 
     params.tExp = params.tExpList{index}; % put the right value in tExp;
-    [keyRateList(index), ~] = FiniteQubitBB84KeyRateFuncRenyi(params,options,mathSolverFunc,mathSolverOptions,debugKeyRateLeaves);
+    [keyRateList(index), ~] = FiniteQubitBB84KeyRateFuncRenyi(params,options,mathSolverFunc,debugKeyRateLeaves);
    
 end
 

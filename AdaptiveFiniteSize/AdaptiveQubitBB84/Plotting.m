@@ -1,4 +1,6 @@
-fsize = 50;
+fSize = 18;
+lineWidth = 2;
+markerSize = 6;
 
 %% We start plotting the fixed-length keyrates
 
@@ -88,15 +90,20 @@ fixedLengthKeyRateExpected = fixedLengthKeyRateExpected(1:maxPoints);
 %fixedLengthKeyRateUpper = fixedLengthKeyRateUpper(1:maxPoints);
 keyRateListAcceptFix = keyRateListAcceptFix(1:maxPoints);
 
-semilogx(tList,fixedLengthKeyRateExpected,'-.<','Color',"#0072BD",'MarkerSize',7,'DisplayName','$\bar{R}_{\mathrm{fixed},i}$');
+semilogx(tList,fixedLengthKeyRateExpected,'-.<','Color',"#0072BD",...
+    'DisplayName','$\bar{R}_{\mathrm{fixed},i}$');
 hold on;
-%loglog(tList,fixedLengthKeyRateUpper,'-.+','Color',"#D95319",'DisplayName','$\bar{R}^{\mathrm{u}}_{\mathrm{fixed},i}$');
+% loglog(tList,fixedLengthKeyRateUpper,'-.+','Color',"#D95319",...
+%     'DisplayName','$\bar{R}^{\mathrm{u}}_{\mathrm{fixed},i}$');
 
-semilogx(tList,keyRateListAcceptFix,'-.*','Color',"#EDB120",'DisplayName','$R_{\mathrm{fixed},i}$');
+semilogx(tList,keyRateListAcceptFix,'-.*','Color',"#EDB120",...
+    'DisplayName','$R_{\mathrm{fixed},i}$');
 
-yline(keyRateAdaptive,"--",'Color',"#7E2F8E",'LineWidth',4,'DisplayName','$\bar{R}_{\mathrm{variable}}$ ')
+yline(keyRateAdaptive,"--",'Color',"#7E2F8E","LineWidth",lineWidth,...
+    'DisplayName','$\bar{R}_{\mathrm{variable}}$ ')
 
-%yline(keyRateAdaptiveUpperBound,"-.",'Color',"#77AC30",'LineWidth',4,'DisplayName','$\bar{R}^{\mathrm{u}}_{\mathrm{variable}}$')
+% yline(keyRateAdaptiveUpperBound,"-.",'Color',"#77AC30",'LineWidth',4,...
+%     'DisplayName','$\bar{R}^{\mathrm{u}}_{\mathrm{variable}}$')
 
 
 %Other things
@@ -104,10 +111,10 @@ xlabel('$t_i$','Interpreter','latex');
 ylabel('Secure key bits / signal sent','Interpreter','latex');
 %ylabel('Objective Function');
 legend('Location','best','Interpreter','latex');
-fontsize(gca,fsize,"pixels")
+fontsize(gca,fSize,"pixels")
 
-set(findall(gcf,'Type','line'),'LineWidth',4);
-set(findall(gcf,'Type','line'),'MarkerSize',13);
+set(findall(gcf,'Type','line'),'LineWidth',lineWidth);
+set(findall(gcf,'Type','line'),'MarkerSize',markerSize);
 
 xlim([tList(1), tList(numel(tList))])
 savefig('./adaptivePlot.fig');
