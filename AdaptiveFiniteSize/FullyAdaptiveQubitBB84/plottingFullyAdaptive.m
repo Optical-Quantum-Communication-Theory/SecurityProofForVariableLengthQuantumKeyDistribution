@@ -1,6 +1,6 @@
-fsize = 50;
-lw = 4;
-ms = 13;
+fSize = 18;
+lineWidth = 2;
+markerSize = 6;
 
 
 % we will plot expected keyrate for fixed-length and fully-variable length
@@ -53,11 +53,14 @@ VariableLengthKeyRate = mean(variableKeyRates,'all');
 
 
 
-semilogx(tList,FixedLengthKeyRateExpected,'-o','Color',"#0072BD",'DisplayName','$\bar{R}_{\mathrm{fixed},i}$');
+semilogx(tList,FixedLengthKeyRateExpected,'-o','Color',"#0072BD",...
+    'DisplayName','$\bar{R}_{\mathrm{fixed},i}$');
 hold on;
-semilogx(tList,KeyRateListUponAcceptFixed,'-*','Color',"#EDB120",'DisplayName','$R_{\mathrm{fixed},i}$');
+semilogx(tList,KeyRateListUponAcceptFixed,'-*','Color',"#EDB120",...
+    'DisplayName','$R_{\mathrm{fixed},i}$');
 
-yline(VariableLengthKeyRate,'Color',"#7E2F8E",'LineWidth',lw,'DisplayName','$\bar{R}_{\mathrm{variable}}$ ')
+yline(VariableLengthKeyRate,'Color',"#7E2F8E",'LineWidth',lineWidth,...
+    'DisplayName','$\bar{R}_{\mathrm{variable}}$ ')
 
 
 
@@ -65,10 +68,11 @@ yline(VariableLengthKeyRate,'Color',"#7E2F8E",'LineWidth',lw,'DisplayName','$\ba
 xlabel('$t_i$','Interpreter','latex');
 ylabel("Secure Key Bits / Signal Sents","Interpreter","latex");
 legend('Location','best','Interpreter','latex');
-fontsize(gca,fsize,"pixels")
+set(gca,"FontSize",fSize);
+% fontsize(gca,fSize,"pixels")
 xlim([tList(1),tList(numel(tList))]);
-set(findall(gcf,'Type','line'),'LineWidth',lw);
-set(findall(gcf,'Type','line'),'MarkerSize',ms);
+set(findall(gcf,'Type','line'),'LineWidth',lineWidth);
+set(findall(gcf,'Type','line'),'MarkerSize',markerSize);
 
 
 savefig('fullyAdaptivePlot.fig');

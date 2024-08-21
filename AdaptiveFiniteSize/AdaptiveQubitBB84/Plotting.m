@@ -111,7 +111,8 @@ xlabel('$t_i$','Interpreter','latex');
 ylabel('Secure key bits / signal sent','Interpreter','latex');
 %ylabel('Objective Function');
 legend('Location','best','Interpreter','latex');
-fontsize(gca,fSize,"pixels")
+set(gca,"FontSize",fSize);
+% fontsize(gca,fSize,"pixels")
 
 set(findall(gcf,'Type','line'),'LineWidth',lineWidth);
 set(findall(gcf,'Type','line'),'MarkerSize',markerSize);
