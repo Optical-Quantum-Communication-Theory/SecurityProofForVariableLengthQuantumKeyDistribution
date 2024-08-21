@@ -11,6 +11,9 @@ The code computes the key rates for fixed-length and variable-length qubit BB84 
 > [!CAUTION]
 > This repository is for archival and transparency purposes; we do not guarantee compatibility with other versions of the Open QKD Security package beyond the ones listed above.
 
+> [!NOTE]
+> This repository requires the Statistics and Machine Learning Toolbox from Mathworks to function. Please install this first, then follow the rest of the instructions.
+
 ### as zip
 1. Download the linked version of the code from above and follow all [install instructions](https://github.com/Optical-Quantum-Communication-Theory/openQKDsecurity/commit/bb1c6490c6bffb0661cef52f6b48de41b5e78027).
 2. Download the latest release on the side bar and unzip in your preferred directory and add this folder to the Matlab path.
